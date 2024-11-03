@@ -1,6 +1,6 @@
 # COMP10002 Reference Sheet
 
-- [Bitwise operators](#Bitwise operators)
+- [Bitwise operators](#bitwise-operators)
 
 ## Bitwise operators
 
