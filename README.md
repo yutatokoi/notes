@@ -7,6 +7,7 @@
 - [Void pointers](#void-pointers)
 - [stdlib.h](#stdlibh)
 - [stdio.h](#stdioh)
+- [assert.h](#asserth)
 - [Alogrithms](#algorithms)
 - [Data structures](#data-structures)
 
@@ -165,6 +166,10 @@ printf("%s", output);
         - SEEK_CUR - Offset is relative to the current position in the file
         - SEEK_END - Offset is relative to the end of the file (SEEK_END value may not be fully supported by some implementations of the library.)
     - Returns: An `int` value which is zero if successful and non-zero if an error occurred.
+
+## assert.h
+
+- `assert(expression)`
 
 ## Algorithms
 
