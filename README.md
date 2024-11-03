@@ -9,6 +9,7 @@
 - [stdio.h](#stdioh)
 - [assert.h](#asserth)
 - [ctype.h](#ctypeh)
+- [string.h](#stringh)
 - [Alogrithms](#algorithms)
 - [Data structures](#data-structures)
 
@@ -208,6 +209,19 @@ printf("%s", output);
     - Returns: An `int` value of the ASCII value of the lowercase version of a character.
 - `int toupper(int ch)`
     - Returns: An `int` value of the ASCII value of the uppercase version of a character.
+
+## string.h
+
+- `void *memcpy(void *dest_str, const void * src_str, size_t n`
+    - Returns: pointer to `dest_str`
+- `strcat(void * destination, void * source)`
+    - Returns: A `char` type pointer to the destination string.
+- `strcmp(const char * str1, const char * str2)`
+    - Returns: `int` value. Positive if `str1 > str2`, negative if `str1 < str2`, zero if `str1 == str2`.
+- `strcpy(char * destination, char * source)`
+    - Returns: A `char` type pointer to the destination string.
+- `strlen(char * str)`
+    - Returns: `int`
 
 ## Algorithms
 
