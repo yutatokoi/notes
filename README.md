@@ -6,6 +6,7 @@
 - [Static variables](#static-variables)
 - [Void pointers](#void-pointers)
 - [stdlib.h](#stdlibh)
+- [stdio.h](#stdioh)
 - [Alogrithms](#algorithms)
 - [Data structures](#data-structures)
 
@@ -115,6 +116,55 @@ printf("Value: %d\n", *(int *)ptr);
 - `srand(time(NULL))`
     - Seeds the random number generator with the current time, making the sequence of random numbers different each time the program is run.
     - Requires `<time.h>`
+ 
+## stdio.h
+
+- `getchar()`
+    - Returns: An `int` value representing the ASCII value of the character that was read.
+- `putchar(int char)`
+    - Returns: An `int` value representing the ASCII value of the character that was written.
+- `fopen(const char * filename, const char * mode)`
+    - Returns: A `FILE` pointer which can be used by other file handling functions.
+    - Create a file: `fptr = fopen("filename.txt", "w");`
+- Modes
+    - `"w"`: Open for writing only. Clears all of the content of the file. If the file does not exist it will be created.
+    - `"a"`: Open for writing only. Only writes to the end of the file. If the file does not exist it will be created.
+    - `"r"`: Open for reading only. If the file does not exist then a NULL pointer is returned.
+- `fclose(FILE * fptr)`
+    - Returns: An `int` value which is `0` if the file was closed successfully. A different value indicates that an error occurred.
+- `fread(void * destination, size_t size, size_t amount, FILE * fptr)`
+    - `destination`: Required. A pointer to a block of memory where the data will be written.
+    - `size`: Required. The size of an element in the block of memory.
+    - `amount`: Required. The number of elements to read from the file and write into the block of memory.
+    - `fptr`: Required. A file pointer, usually created by the `fopen()` function.
+    - Returns: A `size_t` value representing the number of elements that were read. If this number is different than the amount parameter then the end of the file has been reached or an error occurred.
+- `fwrite(const void * source, size_t size, size_t amount, FILE * fptr)`
+    - `source`: Required. A pointer to a block of memory where the data is copied from.
+    - `size`: Required. The size of an element in the block of memory.
+    - `amount`: Required. The number of elements to read from the block of memory and write into the file. 
+    - Returns: A `size_t` value representing the number of elements that were written into the file.
+- `fscanf(FILE * fptr, const char * format, arg1, arg2...)`
+    - Returns: An `int` value representing the number of arguments that were written to. It returns the constant `EOF` if an error occurred.
+    - Ex:
+```
+char output[50];
+fscanf(fptr, "%49s", output);
+printf("%s", output);
+```
+- `fprintf(FILE * fptr, const char * format, arg1, arg2...)`
+    - Returns: An `int` value representing the number of characters written to the file. If an error occurred then it returns a negative number.
+    - Ex: `fprintf(fptr, "Some text");`
+- `fgets(char * destination, int size, FILE * fptr)`
+    - `destination`: Required. A pointer to the array where the content will be written.
+    - `size`: Required. The size of the array being written to. The function will read at most size-1 characters from the file. 
+    - Returns: The same pointer that was provided by the `destination` parameter.
+- `fseek(FILE * fptr, long int offset, int origin)`
+    - `offset`: Required. Specifies a position in the file relative to `origin`.
+    - `origin`: Required. Specifies the position in the file from which the `offset` is applied. It can be one of the following constants:
+        - SEEK_SET - Offset is relative to the beginning of the file
+        - SEEK_CUR - Offset is relative to the current position in the file
+        - SEEK_END - Offset is relative to the end of the file (SEEK_END value may not be fully supported by some implementations of the library.)
+    - Returns: An `int` value which is zero if successful and non-zero if an error occurred.
 
 ## Algorithms
 
