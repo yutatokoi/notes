@@ -1,5 +1,7 @@
 # COMP10002 Reference Sheet
 
+- [Bitwise operators](## Bitwise operators)
+
 ## Bitwise operators
 
 - `&`: AND
@@ -49,7 +51,51 @@ sprintf(buffer, "%o", num);
 ## Static variables
 
 `static int count = 0;`
+
 These variables are defined within a function and retain their value between calls to that function.
+
+## Void pointers
+
+`void *ptr;`
+
+A special type of pointer that does not have an associated data type. This allows it to point to any type of data without needing to be cast explicitly to match a specific type during assignment.
+
+```
+#include <stdio.h>
+
+void printValue(void *ptr, char type) {
+    if (type == 'i') {
+        printf("Integer: %d\n", *(int *)ptr);
+    } else if (type == 'f') {
+        printf("Float: %.2f\n", *(float *)ptr);
+    } else if (type == 'c') {
+        printf("Character: %c\n", *(char *)ptr);
+    }
+}
+
+int main() {
+    int num = 42;
+    float pi = 3.14;
+    char letter = 'A';
+
+    printValue(&num, 'i');
+    printValue(&pi, 'f');
+    printValue(&letter, 'c');
+
+    return 0;
+}
+```
+
+To dereference a void pointer, you must cast it to the appropriate type first:
+
+```
+void *ptr;
+int a = 5;
+ptr = &a;  // Assign the address of an int variable to the void pointer
+
+// Cast to int pointer to dereference
+printf("Value: %d\n", *(int *)ptr);
+```
 
 ## stdlib.h
 
