@@ -2,12 +2,12 @@
 
 ## Bitwise operators
 
-`&`: AND
-`|`: OR
-`^`: XOR
-`~`: NOT
-`<<`: Left shift
-`>>`: Right shift
+- `&`: AND
+- `|`: OR
+- `^`: XOR
+- `~`: NOT
+- `<<`: Left shift
+- `>>`: Right shift
 
 ```
 unsigned int b = 9;
