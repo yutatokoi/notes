@@ -117,6 +117,26 @@ printf("Value: %d\n", *(int *)ptr);
 - `srand(time(NULL))`
     - Seeds the random number generator with the current time, making the sequence of random numbers different each time the program is run.
     - Requires `<time.h>`
+- `abs(int value)`
+    - Only works on `int` values
+- `atof(const char * str)`
+    - Returns: A `double` value containing the number represented by the string.
+- `atoi(const char * str)`
+    - Returns: An `int` value containing the number represented by the string.
+- `qsort(void * arr, size_t amount, size_t size, compare)`
+    - `arr`: Required. Specifies the array to be sorted.
+    - `amount`: Required. Specifies the number of elements in the array.
+    - `size`: Required. Specifies the size of an element in the array measured in bytes.
+    - `compare`: Required. Specifies the size of an element in the array measured in bytes.
+        -  The function should have the structure `int myFunction(const void * a, const void * b)` where the parameters `a` and `b` are pointers to elements in the array being compared. The function should return a positive number if `a > b`, a negative number if `a < b` and zero if `a == b`.
+- `malloc(size_t size)`
+    - Returns: A `void *` pointer to the newly allocated block of memory.
+    - Ex: `int *myArray = malloc(numItems * sizeof(int));`
+- `realloc(void * ptr, size_t size)`
+    - Returns: A `void *` pointer to the block of memory.
+    - Ex: `myArray = realloc(myArray, 2 * numItems * sizeof(int));`
+- `free(void * ptr)`
+    - Ex: `free(myArray)`
  
 ## stdio.h
 
