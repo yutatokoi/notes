@@ -10,6 +10,7 @@
 - [assert.h](#asserth)
 - [ctype.h](#ctypeh)
 - [string.h](#stringh)
+- [math.h](#mathh)
 - [Alogrithms](#algorithms)
 - [Data structures](#data-structures)
 
@@ -206,9 +207,7 @@ printf("%s", output);
 - `int isupper(int ch)`
     - Returns: A non-zero `int` if the character is an uppercase letter. `0` otherwise.
 - `int tolower(int ch)`
-    - Returns: An `int` value of the ASCII value of the lowercase version of a character.
 - `int toupper(int ch)`
-    - Returns: An `int` value of the ASCII value of the uppercase version of a character.
 
 ## string.h
 
@@ -220,8 +219,23 @@ printf("%s", output);
     - Returns: `int` value. Positive if `str1 > str2`, negative if `str1 < str2`, zero if `str1 == str2`.
 - `strcpy(char * destination, char * source)`
     - Returns: A `char` type pointer to the destination string.
-- `strlen(char * str)`
-    - Returns: `int`
+- `int strlen(char * str)`
+ 
+## math.h
+
+- `double ceil(double number)`
+- `double floor(double number)`
+- `double round(double number)`
+- `double trunc(doulbe number)`
+- `double fabs(double number)`
+- `double log(double number)`
+    - Natural logarithm
+- `double log10(double number)`
+    - Base 10 logarithm
+- `double log2(double number)`
+    - Base 2 logarithm
+- `double pow(double base, double exponent)`
+- `double sqrt(double number)`
 
 ## Algorithms
 
