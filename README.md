@@ -1,20 +1,24 @@
 # COMP10002 Reference Sheet
 
-- [Bitwise operators](#bitwise-operators)
-- [Base conversion](#base-conversion)
-- [Format specifiers](#format-specifiers)
-- [Static variables](#static-variables)
-- [Void pointers](#void-pointers)
-- [stdlib.h](#stdlibh)
-- [stdio.h](#stdioh)
-- [assert.h](#asserth)
-- [ctype.h](#ctypeh)
-- [string.h](#stringh)
-- [math.h](#mathh)
+- [C](#c)
+    - [Bitwise operators](#bitwise-operators)
+    - [Base conversion](#base-conversion)
+    - [Format specifiers](#format-specifiers)
+    - [Static variables](#static-variables)
+    - [Void pointers](#void-pointers)
+- [Standard library](#standard-library)
+    - [stdlib.h](#stdlibh)
+    - [stdio.h](#stdioh)
+    - [assert.h](#asserth)
+    - [ctype.h](#ctypeh)
+    - [string.h](#stringh)
+    - [math.h](#mathh)
 - [Alogrithms](#algorithms)
 - [Data structures](#data-structures)
 
-## Bitwise operators
+## C
+
+### Bitwise operators
 
 - `&`: AND
 - `|`: OR
@@ -32,7 +36,7 @@ printf("b<<1 = %u\n", b << 1);
 printf("b>>1 = %u\n", b >> 1);
 ```
 
-## Base conversion
+### Base conversion
 
 ```
 // Convert num to hexadecimal string, store it in buffer
@@ -42,7 +46,7 @@ sprintf(buffer, "%x", num);
 sprintf(buffer, "%o", num);
 ```
 
-## Format specifiers
+### Format specifiers
 
 - `printf("%5d", 42);`
     - Right aligned, using minimum of 5 spaces
@@ -60,13 +64,13 @@ sprintf(buffer, "%o", num);
     - Output: `    3.14`
     - (total width is 8, with 2 decimal places and 4 space padding, right aligned)
 
-## Static variables
+### Static variables
 
 `static int count = 0;`
 
 These variables are defined within a function and retain their value between calls to that function.
 
-## Void pointers
+### Void pointers
 
 `void *ptr;`
 
@@ -109,7 +113,9 @@ ptr = &a;  // Assign the address of an int variable to the void pointer
 printf("Value: %d\n", *(int *)ptr);
 ```
 
-## stdlib.h
+## Standard library
+
+### stdlib.h
 
 - `rand()`
     - Generates a pseudo-random integer between 0 and RAND_MAX (a constant defined in <stdlib.h>, typically 32767).
@@ -141,7 +147,7 @@ printf("Value: %d\n", *(int *)ptr);
 - `free(void * ptr)`
     - Ex: `free(myArray)`
  
-## stdio.h
+### stdio.h
 
 - `getchar()`
     - Returns: An `int` value representing the ASCII value of the character that was read.
@@ -190,11 +196,11 @@ printf("%s", output);
         - SEEK_END - Offset is relative to the end of the file (SEEK_END value may not be fully supported by some implementations of the library.)
     - Returns: An `int` value which is zero if successful and non-zero if an error occurred.
 
-## assert.h
+### assert.h
 
 - `assert(expression)`
 
-## ctype.h
+### ctype.h
 
 - `int isalnum(int ch)`
     - Returns: A non-zero `int` if the character is alphanumeric. `0` otherwise.
@@ -209,7 +215,7 @@ printf("%s", output);
 - `int tolower(int ch)`
 - `int toupper(int ch)`
 
-## string.h
+### string.h
 
 - `void *memcpy(void *dest_str, const void * src_str, size_t n`
     - Returns: pointer to `dest_str`
@@ -221,7 +227,7 @@ printf("%s", output);
     - Returns: A `char` type pointer to the destination string.
 - `int strlen(char * str)`
  
-## math.h
+### math.h
 
 - `double ceil(double number)`
 - `double floor(double number)`
@@ -241,11 +247,9 @@ printf("%s", output);
 
 ### BMH
 
-### Burrows-Wheeler transform
-
 ### KMP
 
-### BMH
+### Burrows-Wheeler transform
 
 ### Quicksort
 
