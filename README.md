@@ -107,34 +107,39 @@ printf("Value: %d\n", *(int *)ptr);
 ## stdlib.h
 
 - `rand()`
-    - 
+    - Generates a pseudo-random integer between 0 and RAND_MAX (a constant defined in <stdlib.h>, typically 32767).
 - `rand() % n`
-    - 
+    - Limits the output of `rand()` to a specific range, from `0` to `n-1`
 - `srand(k)`
-    - initialises the `rand()` function with a seed `k`
+    - Initialises the `rand()` function with a seed `k`
 - `srand(time(NULL))`
-    - a good way to start the program before calling `rand()`
+    - Seeds the random number generator with the current time, making the sequence of random numbers different each time the program is run.
+    - Requires `<time.h>`
 
 ## Algorithms
 
-BMH
+### BMH
 
-Burrows-Wheeler Transform
+### Burrows-Wheeler transform
 
-QuickSort
+### KMP
 
-Insertion Sort
+### BMH
 
-Selection Sort
+### Quicksort
 
-Heap Sort
+### Insertion sort
 
-Merge Sort
+### Selection sort
 
-## Data Structures
+### Heapsort
 
-Binary Search Trees
+### Merge sort
 
-Heaps
+## Data structures
 
-Linked Lists
+### Binary search trees
+
+### Heaps
+
+### Linked lists
