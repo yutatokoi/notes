@@ -6,6 +6,8 @@
 - [Static variables](#static-variables)
 - [Void pointers](#void-pointers)
 - [stdlib.h](#stdlibh)
+- [Alogrithms](#algorithms)
+- [Data structures](#data-structures)
 
 ## Bitwise operators
 
