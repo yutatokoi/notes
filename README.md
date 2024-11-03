@@ -1,6 +1,11 @@
 # COMP10002 Reference Sheet
 
 - [Bitwise operators](#bitwise-operators)
+- [Base conversion](#base-conversion)
+- [Format specifiers](#format-specifiers)
+- [Static variables](#static-variables)
+- [Void pointers](#void-pointers)
+- [stdlib.h](#stdlibh)
 
 ## Bitwise operators
 
