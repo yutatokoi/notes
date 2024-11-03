@@ -14,7 +14,18 @@
     - [string.h](#stringh)
     - [math.h](#mathh)
 - [Alogrithms](#algorithms)
+    - [BMH](#bmh)
+    - [KMP](#kmp)
+    - [Burrows-Wheeler transform](#burrows-wheeler-transform)
+    - [Quicksort](#quicksort)
+    - [Insertion sort](#insertion-sort)
+    - [Selection sort](#selection-sort)
+    - [Heapsort](#heapsort)
+    - [Merge sort](#merge-sort)
 - [Data structures](#data-structures)
+    - [Binary search trees](#binary-search-trees)
+    - [Heaps](#heaps)
+    - [Linked lists](#linked-lists)
 
 ## C
 
