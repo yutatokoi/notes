@@ -8,6 +8,7 @@
 - [stdlib.h](#stdlibh)
 - [stdio.h](#stdioh)
 - [assert.h](#asserth)
+- [ctype.h](#ctypeh)
 - [Alogrithms](#algorithms)
 - [Data structures](#data-structures)
 
@@ -190,6 +191,23 @@ printf("%s", output);
 ## assert.h
 
 - `assert(expression)`
+
+## ctype.h
+
+- `int isalnum(int ch)`
+    - Returns: A non-zero `int` if the character is alphanumeric. `0` otherwise.
+- `int isalpha(int ch)`
+    - Returns: A non-zero `int` if the character is a letter. `0` otherwise.
+- `int isdigit(int ch)`
+    - Returns: A non-zero `int` if the character is a decimal digit. `0` otherwise.
+- `int islower(int ch)`
+    - Returns: A non-zero `int` if the character is a lowercase letter. `0` otherwise.
+- `int isupper(int ch)`
+    - Returns: A non-zero `int` if the character is an uppercase letter. `0` otherwise.
+- `int tolower(int ch)`
+    - Returns: An `int` value of the ASCII value of the lowercase version of a character.
+- `int toupper(int ch)`
+    - Returns: An `int` value of the ASCII value of the uppercase version of a character.
 
 ## Algorithms
 
