@@ -1,4 +1,4 @@
-# COMP10002 Quick Lookup
+# COMP10002 Reference Sheet
 
 ## Bitwise operators
 
