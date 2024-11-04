@@ -26,6 +26,8 @@
     - [Binary search trees](#binary-search-trees)
     - [Heaps](#heaps)
     - [Linked lists](#linked-lists)
+    - [Priority queues](#priority-queues)
+    - [Dictionaries](#dictionaries)
 
 ## C
 
@@ -276,6 +278,51 @@ printf("%s", output);
 
 ### Binary search trees
 
+Binary tree where all nodes in the left subtree are less than the node's value, and all nodes in the right subtree are greater than the node's value.
+
+- Search, insertion deletion,
+    - Average case: O(log(n))
+    - Worst case: O(n) when tree is unbalanced, and essentially becomes a linked list
+
+```Definition
+typedef struct node {
+    int data;
+    struct node* left;
+    struct node* right;
+} node_t;
+```
+
+```Creation
+node_t* createNode(int value) {
+    node_t* newNode = (node_t*)malloc(sizeof(node_t));
+    newNode->data = value;
+    newNode->left = newNode->right = NULL;
+    return newNode;
+}
+```
+
+```Insertion
+node_t* insert(node_t* root, int value) {
+    if (root == NULL) {
+        return createNode(value);
+    }
+    if (value < root->data) {
+        root->left = insert(root->left, value);
+    } else if (value > root->data) {
+        root->right = insert(root->right, value);
+    }
+    return root;
+}
+```
+
 ### Heaps
 
 ### Linked lists
+
+### Priority queues
+
+Implementation via a heap
+
+### Dictionaries
+
+Arrays, trees, lists, hashing
