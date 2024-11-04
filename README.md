@@ -317,11 +317,68 @@ node_t* insert(node_t* root, int value) {
 
 ### Heaps
 
-### Linked lists
+Max heap: the value of the parent node is >= to the value of its child nodes. Root node is the maximum value.
+
+Min heap: the value of the parent node is <= to the value of its child nodes. Root node is the minimum value.
+
+Index for array implementation of heap:
+- Left child is at index `2 * i + 1`
+- Right child is at index `2 * i + 2`
+- Parent node is at index `(i - 1) / 2`
+
+Advantage over linked lists: insertion and deletion can be done in O(log(n)) < O(n).
+
+Insertion: O(log(n))
+```
+// Append new node to the end of the heap. Then:
+void heapifyUp(int heap[], int index) {
+    int parent = (index - 1) / 2;
+    if (index > 0 && heap[index] > heap[parent]) {
+        // Swap the current node with the parent
+        int temp = heap[index];
+        heap[index] = heap[parent];
+        heap[parent] = temp;
+        heapifyUp(heap, parent); // Recursively heapify the parent
+    }
+}
+```
+
+Deletion: O(log(n))
+```
+void heapifyDown(int heap[], int size, int index) {
+    int largest = index;
+    int left = 2 * index + 1;
+    int right = 2 * index + 2;
+
+    if (left < size && heap[left] > heap[largest]) {
+        largest = left;
+    }
+    if (right < size && heap[right] > heap[largest]) {
+        largest = right;
+    }
+    if (largest != index) {
+        int temp = heap[index];
+        heap[index] = heap[largest];
+        heap[largest] = temp;
+        heapifyDown(heap, size, largest); // Recursively heapify the affected subtree
+    }
+}
+```
+
+Heapify: O(n)
+```
+void buildHeap(int heap[], int size) {
+    for (int i = (size / 2) - 1; i >= 0; i--) {
+        heapifyDown(heap, size, i);
+    }
+}
+```
 
 ### Priority queues
 
 Implementation via a heap
+
+### Linked lists
 
 ### Dictionaries
 
