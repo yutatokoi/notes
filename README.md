@@ -397,4 +397,6 @@ typdef struct Node {
 
 ### Dictionaries
 
-Arrays, trees, lists, hashing
+Dictionaries are often implmented using arrays, where the index is determined by a hash function applied on the key, providing efficient searching. Good hashing algorithms distribute the keys evenly throughout the array. However, collisions can occur.
+
+Separate chaining to handle hash collisions. Each array index points to a linked list or binary tree that stores all key-value pairs that hash to the same index. Hence, in the absolute worst case, searching a dictionary using linked lists will be O(n) and those with binary trees are O(log(n)).
