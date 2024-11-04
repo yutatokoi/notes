@@ -25,8 +25,8 @@
 - [Data structures](#data-structures)
     - [Binary search trees](#binary-search-trees)
     - [Heaps](#heaps)
-    - [Linked lists](#linked-lists)
     - [Priority queues](#priority-queues)
+    - [Linked lists](#linked-lists)
     - [Dictionaries](#dictionaries)
 
 ## C
@@ -379,6 +379,21 @@ void buildHeap(int heap[], int size) {
 Implementation via a heap
 
 ### Linked lists
+
+```Singly linked list
+typedef struct Node {
+    int data; 
+    struct Node* next;
+} node_t;
+```
+
+```Doubly linked list
+typdef struct Node {
+    int data;
+    struct Node* next;
+    struct Node* prev;
+} node_t;
+```
 
 ### Dictionaries
 
