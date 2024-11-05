@@ -19,6 +19,7 @@
     - [Burrows-Wheeler transform](#burrows-wheeler-transform)
     - [Quicksort](#quicksort)
     - [Insertion sort](#insertion-sort)
+    - [Bubble sort](#bubble-sort)
     - [Selection sort](#selection-sort)
     - [Heapsort](#heapsort)
     - [Merge sort](#merge-sort)
@@ -434,6 +435,32 @@ while i < length(A)
     i ← i + 1
 end while
 ```
+
+### Bubble sort
+
+Performance:
+- Worst case run-time: O(n^2)
+- Average case run-time: O(n^2)
+- Best case run-time: O(n)
+- Space complexity: O(1)
+
+```Pseudocode
+procedure bubbleSort(A : list of sortable items)
+    n := length(A)
+    repeat
+        swapped := false
+        for i := 1 to n-1 inclusive do
+            { if this pair is out of order }
+            if A[i-1] > A[i] then
+                { swap them and remember something changed }
+                swap(A[i-1], A[i])
+                swapped := true
+            end if
+        end for
+    until not swapped
+end procedure
+```
+
 
 ### Selection sort
 
