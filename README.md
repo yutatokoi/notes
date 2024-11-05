@@ -260,6 +260,46 @@ printf("%s", output);
 
 ### BMH
 
+Substring searching algorithm.
+
+Runtime
+- Average case: O(n)
+- Worst case: O(nm), where pattern is length m and length of search string is n
+
+```
+#define ALPHABET_SIZE 256 // Assuming extended ASCII
+
+void preprocessBadCharacterTable(char *pattern, int patternLength, int badCharTable[]) {
+    for (int i = 0; i < ALPHABET_SIZE; i++) {
+        badCharTable[i] = patternLength; // Default shift length is pattern length
+    }
+    for (int i = 0; i < patternLength - 1; i++) {
+        badCharTable[(unsigned char)pattern[i]] = patternLength - 1 - i; // Shift based on position
+    }
+}
+
+int BMHSearch(char *text, char *pattern) {
+    int textLength = strlen(text);
+    int patternLength = strlen(pattern);
+    int badCharTable[ALPHABET_SIZE];
+
+    preprocessBadCharacterTable(pattern, patternLength, badCharTable);
+
+    int offset = 0;
+    while (offset <= textLength - patternLength) {
+        int j = patternLength - 1;
+        while (j >= 0 && pattern[j] == text[offset + j]) {
+            j--;
+        }
+        if (j < 0) {
+            return offset; // Match found
+        }
+        offset += badCharTable[(unsigned char)text[offset + patternLength - 1]];
+    }
+    return -1; // No match found
+}
+```
+
 ### KMP
 
 ### Burrows-Wheeler transform
