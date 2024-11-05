@@ -365,6 +365,8 @@ void KMPSearch(char *text, char *pattern) {
 
 ### Burrows-Wheeler transform
 
+(Not assessed for the final exam).
+
 Preprocessing for lossless compression on strings. Used in bzip2.
 
 Performance
