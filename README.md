@@ -262,9 +262,9 @@ printf("%s", output);
 
 Substring searching algorithm.
 
-Runtime
-- Average case: O(n)
-- Worst case: O(nm), where pattern is length m and length of search string is n
+Performance
+- Average case run-time: O(n)
+- Worst case run-time: O(nm), where pattern is length m and length of search string is n
 
 ```
 #define ALPHABET_SIZE 256 // Assuming extended ASCII
@@ -302,7 +302,73 @@ int BMHSearch(char *text, char *pattern) {
 
 ### KMP
 
+Both BMH and KMP are not ideal for short strings due to the minimal benefits that the preprocessing provides.
+
+Performance
+- Space complexity: O(m)
+- Worse case run-time: O(m + n)
+
+```
+// Function to build the LPS (Longest Prefix Suffix) array
+void buildLPSArray(char *pattern, int patternLength, int *LPS) {
+    int length = 0; // Length of the previous longest prefix suffix
+    LPS[0] = 0;     // LPS[0] is always 0
+
+    int i = 1;
+    while (i < patternLength) {
+        if (pattern[i] == pattern[length]) {
+            length++;
+            LPS[i] = length;
+            i++;
+        } else {
+            if (length != 0) {
+                length = LPS[length - 1];
+            } else {
+                LPS[i] = 0;
+                i++;
+            }
+        }
+    }
+}
+
+// Function to perform KMP search
+void KMPSearch(char *text, char *pattern) {
+    int textLength = strlen(text);
+    int patternLength = strlen(pattern);
+
+    // Create the LPS array
+    int LPS[patternLength];
+    buildLPSArray(pattern, patternLength, LPS);
+
+    int i = 0; // Index for text
+    int j = 0; // Index for pattern
+    while (i < textLength) {
+        if (pattern[j] == text[i]) {
+            j++;
+            i++;
+        }
+
+        if (j == patternLength) {
+            printf("Pattern found at index %d\n", i - j);
+            j = LPS[j - 1]; // Move pattern based on LPS array
+        } else if (i < textLength && pattern[j] != text[i]) {
+            if (j != 0) {
+                j = LPS[j - 1]; // Shift pattern based on LPS array
+            } else {
+                i++;
+            }
+        }
+    }
+}
+```
+
 ### Burrows-Wheeler transform
+
+Preprocessing for lossless compression on strings. Used in bzip2.
+
+Performance
+- Worst case run-time: O(n)
+- Space complexity: O(n)
 
 ### Quicksort
 
