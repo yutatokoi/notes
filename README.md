@@ -461,12 +461,71 @@ procedure bubbleSort(A : list of sortable items)
 end procedure
 ```
 
-
 ### Selection sort
+
+Performance
+- Worst case run-time: O(n^2)
+- Average case run-time: O(n^2)
+- Best case run-time: O(n^2)
+- Space complexity: O(1)
+
+```Example run through
+arr[] = 64 25 12 22 11
+
+// Find the minimum element in arr[0...4]
+// and place it at beginning
+11 25 12 22 64
+
+// Find the minimum element in arr[1...4]
+// and place it at beginning of arr[1...4]
+11 12 25 22 64
+
+// Find the minimum element in arr[2...4]
+// and place it at beginning of arr[2...4]
+11 12 22 25 64
+
+// Find the minimum element in arr[3...4]
+// and place it at beginning of arr[3...4]
+11 12 22 25 64
+```
 
 ### Heapsort
 
 ### Merge sort
+
+Performance
+- Worst case run-time: O(nlog(n))
+- Average case run-time: O(nlog(n))
+- Best case run-time: O(nlog(n))
+- Space compexity: O(n)
+
+1. Divide the unsorted list into n sublists, each containing one element (a list of one element is considered sorted).
+2. Repeatedly merge sublists to produce new sorted sublists until there is only one sublist remaining. This will be the sorted list.
+
+```Pseudocode
+function merge_sort(list m) is
+    // Base case. A list of zero or one elements is sorted, by definition.
+    if length of m ≤ 1 then
+        return m
+
+    // Recursive case. First, divide the list into equal-sized sublists
+    // consisting of the first half and second half of the list.
+    // This assumes lists start at index 0.
+    var left := empty list
+    var right := empty list
+    for each x with index i in m do
+        if i < (length of m)/2 then
+            add x to left
+        else
+            add x to right
+
+    // Recursively sort both sublists.
+    left := merge_sort(left)
+    right := merge_sort(right)
+
+    // Then merge the now-sorted sublists.
+    return merge(left, right)
+```
 
 ## Data structures
 
