@@ -24,6 +24,7 @@
     - [Selection sort](#selection-sort)
     - [Heapsort](#heapsort)
     - [Merge sort](#merge-sort)
+    - [Merge sort on linked list](#merge-sort-on-linked-list)
 - [Data structures](#data-structures)
     - [Binary search trees](#binary-search-trees)
     - [Heaps](#heaps)
@@ -420,7 +421,7 @@ algorithm partition(A, lo, hi) is
 
 ### Quicksort on linked list
 
-Quicksort is a stable sort when implemented on a linked list.
+Quicksort is a stable sort when implemented on a linked list. It also does not require auxilliary memory space as it simply manipulates pointers.
 
 ```
 // Function to perform Quicksort on a linked list
@@ -648,6 +649,75 @@ function merge_sort(list m) is
 
     // Then merge the now-sorted sublists.
     return merge(left, right)
+```
+
+### Merge sort on linked list
+
+For sorting linked lists, merge sort is typically a better choice than quicksort due to its synergy with linked lists. Quicksort is more suited for arrays.
+
+```
+// Function to perform merge sort on a linked list
+Node* mergeSort(Node* head) {
+    // Base case: if head is NULL or only one element
+    if (head == NULL || head->next == NULL) {
+        return head;
+    }
+
+    // Get the middle of the list
+    Node* middle = getMiddle(head);
+    Node* nextOfMiddle = middle->next;
+
+    // Split the list into two halves
+    middle->next = NULL;
+
+    // Recursively sort the two halves
+    Node* left = mergeSort(head);
+    Node* right = mergeSort(nextOfMiddle);
+
+    // Merge the sorted halves
+    Node* sortedList = sortedMerge(left, right);
+
+    return sortedList;
+}
+
+// Function to merge two sorted linked lists
+Node* sortedMerge(Node* a, Node* b) {
+    Node* result = NULL;
+
+    // Base cases
+    if (a == NULL) return b;
+    if (b == NULL) return a;
+
+    // Pick either a or b, and recur
+    if (a->data <= b->data) {
+        result = a;
+        result->next = sortedMerge(a->next, b);
+    } else {
+        result = b;
+        result->next = sortedMerge(a, b->next);
+    }
+
+    return result;
+}
+
+// Function to find the middle of the linked list
+Node* getMiddle(Node* head) {
+    if (head == NULL) return head;
+
+    Node* slow = head;
+    Node* fast = head->next;
+
+    // Move fast by two nodes and slow by one node
+    while (fast != NULL) {
+        fast = fast->next;
+        if (fast != NULL) {
+            slow = slow->next;
+            fast = fast->next;
+        }
+    }
+
+    return slow;
+}
 ```
 
 ## Data structures
