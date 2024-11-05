@@ -18,6 +18,7 @@
     - [KMP](#kmp)
     - [Burrows-Wheeler transform](#burrows-wheeler-transform)
     - [Quicksort](#quicksort)
+    - [Quicksort on linked list](#quicksort-on-linked-list)
     - [Insertion sort](#insertion-sort)
     - [Bubble sort](#bubble-sort)
     - [Selection sort](#selection-sort)
@@ -415,6 +416,114 @@ algorithm partition(A, lo, hi) is
   // Swap the pivot with the last element
   swap A[i] with A[hi]
   return i // the pivot index
+```
+
+### Quicksort on linked list
+
+Quicksort is a stable sort when implemented on a linked list.
+
+```
+// Function to perform Quicksort on a linked list
+Node* quickSort(Node* head) {
+    // Base case: 0 or 1 element
+    if (head == NULL || head->next == NULL) {
+        return head;
+    }
+
+    // Choose pivot (we'll use the head node)
+    int pivot = head->data;
+
+    // Initialize pointers for three sublists
+    Node* lessHead = NULL;
+    Node* lessTail = NULL;
+    Node* equalHead = NULL;
+    Node* equalTail = NULL;
+    Node* greaterHead = NULL;
+    Node* greaterTail = NULL;
+
+    // Partitioning step
+    Node* current = head;
+    while (current != NULL) {
+        if (current->data < pivot) {
+            // Append to 'less' list
+            appendNode(&lessHead, &lessTail, current);
+        } else if (current->data == pivot) {
+            // Append to 'equal' list
+            appendNode(&equalHead, &equalTail, current);
+        } else {
+            // Append to 'greater' list
+            appendNode(&greaterHead, &greaterTail, current);
+        }
+        current = current->next;
+    }
+
+    // Terminate the sublists
+    if (lessTail != NULL) lessTail->next = NULL;
+    if (equalTail != NULL) equalTail->next = NULL;
+    if (greaterTail != NULL) greaterTail->next = NULL;
+
+    // Recursively sort 'less' and 'greater' lists
+    Node* sortedLess = quickSort(lessHead);
+    Node* sortedGreater = quickSort(greaterHead);
+
+    // Concatenate the lists: sortedLess + equal + sortedGreater
+    return concatenateLists(sortedLess, equalHead, sortedGreater);
+}
+
+// Helper function to append a node to the end of a list
+void appendNode(Node** headRef, Node** tailRef, Node* node) {
+    if (*headRef == NULL) {
+        // Empty list
+        *headRef = node;
+        *tailRef = node;
+    } else {
+        // Non-empty list
+        (*tailRef)->next = node;
+        *tailRef = node;
+    }
+}
+
+// Helper function to concatenate three lists
+Node* concatenateLists(Node* less, Node* equal, Node* greater) {
+    Node* head = NULL;
+    Node* tail = NULL;
+
+    // Add 'less' list
+    if (less != NULL) {
+        head = less;
+        tail = getTail(less);
+    }
+
+    // Add 'equal' list
+    if (equal != NULL) {
+        if (head == NULL) {
+            head = equal;
+            tail = getTail(equal);
+        } else {
+            tail->next = equal;
+            tail = getTail(equal);
+        }
+    }
+
+    // Add 'greater' list
+    if (greater != NULL) {
+        if (head == NULL) {
+            head = greater;
+        } else {
+            tail->next = greater;
+        }
+    }
+
+    return head;
+}
+
+// Helper function to get the tail of a list
+Node* getTail(Node* head) {
+    while (head != NULL && head->next != NULL) {
+        head = head->next;
+    }
+    return head;
+}
 ```
 
 ### Insertion sort
