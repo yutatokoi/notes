@@ -550,6 +550,11 @@ Binary tree where all nodes in the left subtree are less than the node's value, 
     - Average case: O(log(n))
     - Worst case: O(n) when tree is unbalanced, and essentially becomes a linked list
 
+Traversal methods
+- In-order: Left-Node-Right
+- Pre-order: Node-Left-Right
+- Post-order: Left-Right-Node
+
 ```Definition
 typedef struct node {
     int data;
