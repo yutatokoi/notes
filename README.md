@@ -491,6 +491,17 @@ arr[] = 64 25 12 22 11
 
 ### Heapsort
 
+In-place sorting, with unstable sort.
+
+Performance
+- Worst case run-time: O(nlog(n))
+- Average case run-time: O(nlog(n))
+- Best case run-time: O(nlog(n))
+- Space complexity: O(1)
+
+1. Heapfiy the input
+2. Repeatedly extract the largest/smallest element and swap with the last element in the array
+
 ### Merge sort
 
 Performance
