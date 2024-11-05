@@ -29,6 +29,7 @@
     - [Priority queues](#priority-queues)
     - [Linked lists](#linked-lists)
     - [Dictionaries](#dictionaries)
+- [Miscellaneous](#miscellaneous)
 
 ## C
 
@@ -550,11 +551,6 @@ Binary tree where all nodes in the left subtree are less than the node's value, 
     - Average case: O(log(n))
     - Worst case: O(n) when tree is unbalanced, and essentially becomes a linked list
 
-Traversal methods
-- In-order: Left-Node-Right
-- Pre-order: Node-Left-Right
-- Post-order: Left-Right-Node
-
 ```Definition
 typedef struct node {
     int data;
@@ -671,3 +667,12 @@ typdef struct Node {
 Dictionaries are often implmented using arrays, where the index is determined by a hash function applied on the key, providing efficient searching. Good hashing algorithms distribute the keys evenly throughout the array. However, collisions can occur.
 
 Separate chaining to handle hash collisions. Each array index points to a linked list or binary tree that stores all key-value pairs that hash to the same index. Hence, in the absolute worst case, searching a dictionary using linked lists will be O(n) and those with binary trees are O(log(n)).
+
+## Miscellaneous
+
+Loop invariants: "In computer science, a loop invariant is a property of a program loop that is true before (and after) each iteration. It is a logical assertion, sometimes checked with a code assertion. Knowing its invariant(s) is essential in understanding the effect of a loop." (<https://en.wikipedia.org/wiki/Loop_invariant>)
+
+Binary tree traversal methods
+- In-order: Left-Node-Right
+- Pre-order: Node-Left-Right
+- Post-order: Left-Right-Node
