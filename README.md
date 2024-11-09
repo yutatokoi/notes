@@ -119,7 +119,7 @@ int main() {
 }
 ```
 
-To dereference a void pointer, you must cast it to the appropriate type first:
+To dereference a void pointer, it must be cast to the appropriate type first:
 
 ```
 void *ptr;
@@ -604,7 +604,7 @@ arr[] = 64 25 12 22 11
 
 ### Heapsort
 
-In-place sorting, with unstable sort.
+In-place sorting. Unstable sort.
 
 Performance
 - Worst case run-time: O(nlog(n))
@@ -623,7 +623,7 @@ Performance
 - Best case run-time: O(nlog(n))
 - Space compexity: O(n)
 
-1. Divide the unsorted list into n sublists, each containing one element (a list of one element is considered sorted).
+1. Divide the unsorted list into `n` sublists, each containing one element (a list of one element is considered sorted).
 2. Repeatedly merge sublists to produce new sorted sublists until there is only one sublist remaining. This will be the sorted list.
 
 ```Pseudocode
