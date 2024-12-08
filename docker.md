@@ -1,9 +1,3 @@
-Learn about containers. Docker.
-- What problems do containers solve?
-- How do containers work. How does this solve the previous issues?
-- Where are security vulnerabilities in containers
-- How does tools like Trivy help in resolving those security issues
-
 # コンテナ
 
 ## コンテナ以前：仮想マシン
@@ -29,6 +23,6 @@ Solutions:
 
 ## Other Resources
 
-https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=8861307
-https://docs.docker.com/get-started/docker-overview/
-https://cheatsheetseries.owasp.org/cheatsheets/Docker_Security_Cheat_Sheet.html
+- <https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=8861307>
+- <https://docs.docker.com/get-started/docker-overview/>
+- <https://cheatsheetseries.owasp.org/cheatsheets/Docker_Security_Cheat_Sheet.html>
